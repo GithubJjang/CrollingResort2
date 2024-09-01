@@ -1,0 +1,223 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 130023424 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3548), pid=76588, tid=31160
+#
+# JRE version:  (17.0.5+8) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.5+8, mixed mode, emulated-client, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61295 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=demo -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages com.example.demo.DemoApplication --spring.output.ansi.enabled=always
+
+Host: 11th Gen Intel(R) Core(TM) i5-1155G7 @ 2.50GHz, 8 cores, 7G,  Windows 11 , 64 bit Build 22621 (10.0.22621.2506)
+Time: Thu Jan  4 15:01:34 2024  Windows 11 , 64 bit Build 22621 (10.0.22621.2506) elapsed time: 0.032562 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001f5443ce8c0):  JavaThread "Unknown thread" [_thread_in_vm, id=31160, stack(0x0000001c59a00000,0x0000001c59b00000)]
+
+Stack: [0x0000001c59a00000,0x0000001c59b00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x676b3a]
+V  [jvm.dll+0x831444]
+V  [jvm.dll+0x832bee]
+V  [jvm.dll+0x833253]
+V  [jvm.dll+0x244ce5]
+V  [jvm.dll+0x673a49]
+V  [jvm.dll+0x66811a]
+V  [jvm.dll+0x303ceb]
+V  [jvm.dll+0x30b1e6]
+V  [jvm.dll+0x35adbe]
+V  [jvm.dll+0x35afef]
+V  [jvm.dll+0x2dab88]
+V  [jvm.dll+0x2dbaf4]
+V  [jvm.dll+0x803121]
+V  [jvm.dll+0x368bb1]
+V  [jvm.dll+0x7e265c]
+V  [jvm.dll+0x3eb17f]
+V  [jvm.dll+0x3eccc1]
+C  [jli.dll+0x5267]
+C  [ucrtbase.dll+0x29363]
+C  [KERNEL32.DLL+0x1257d]
+C  [ntdll.dll+0x5aa58]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff9a3fe2f18, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001f5464a02f0 GCTaskThread "GC Thread#0" [stack: 0x0000001c59b00000,0x0000001c59c00000] [id=80676]
+  0x000001f5464b0790 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000001c59c00000,0x0000001c59d00000] [id=5112]
+  0x000001f5464b17e0 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000001c59d00000,0x0000001c59e00000] [id=83196]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff9a37bb617]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001f5443ccdb0] Heap_lock - owner thread: 0x000001f5443ce8c0
+
+Heap address: 0x0000000084a00000, size: 1974 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000084a00000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff9a3b9fcb9]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.021 Loaded shared library C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6e9d90000 - 0x00007ff6e9d9e000 	C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin\javaw.exe
+0x00007ff9eba90000 - 0x00007ff9ebca7000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff9ea1e0000 - 0x00007ff9ea2a4000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff9e8ec0000 - 0x00007ff9e9266000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff9e93c0000 - 0x00007ff9e94d1000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff9d87a0000 - 0x00007ff9d87b7000 	C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin\jli.dll
+0x00007ff9d1350000 - 0x00007ff9d1369000 	C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin\VCRUNTIME140.dll
+0x00007ff9e9930000 - 0x00007ff9e9ade000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff9e9390000 - 0x00007ff9e93b6000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff9dac30000 - 0x00007ff9daec3000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\COMCTL32.dll
+0x00007ff9e9ae0000 - 0x00007ff9e9b09000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff9eadd0000 - 0x00007ff9eae77000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff9e94e0000 - 0x00007ff9e95f8000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff9e92f0000 - 0x00007ff9e938a000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff9eb960000 - 0x00007ff9eb991000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff9d91d0000 - 0x00007ff9d91dc000 	C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin\vcruntime140_1.dll
+0x00007ff9c0550000 - 0x00007ff9c05e1000 	C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin\msvcp140.dll
+0x00007ff9a34d0000 - 0x00007ff9a4114000 	C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin\server\jvm.dll
+0x00007ff9e9e60000 - 0x00007ff9e9f11000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff9e9b10000 - 0x00007ff9e9bb5000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff9eaf60000 - 0x00007ff9eb077000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff9ceb60000 - 0x00007ff9ceb94000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff9d9200000 - 0x00007ff9d9209000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff9e0d20000 - 0x00007ff9e0d2a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff9e9bc0000 - 0x00007ff9e9c31000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff9e7ef0000 - 0x00007ff9e7f08000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff9e4530000 - 0x00007ff9e453a000 	C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin\jimage.dll
+0x00007ff9e64e0000 - 0x00007ff9e6713000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff9eb5a0000 - 0x00007ff9eb929000 	C:\WINDOWS\System32\combase.dll
+0x00007ff9eae80000 - 0x00007ff9eaf57000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff9d8870000 - 0x00007ff9d88a2000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff9e9270000 - 0x00007ff9e92ea000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff9e2820000 - 0x00007ff9e2845000 	C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\jre\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100;C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933\;C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v2022110
+
+VM Arguments:
+jvm_args: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61295 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=demo -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages 
+java_command: com.example.demo.DemoApplication --spring.output.ansi.enabled=always
+java_class_path (initial): C:\Crolling & UpdateDB\demo\target\classes;C:\Users\손형동\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.1.6\spring-boot-starter-web-3.1.6.jar;C:\Users\손형동\.m2\repository\org\springframework\boot\spring-boot-starter\3.1.6\spring-boot-starter-3.1.6.jar;C:\Users\손형동\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.1.6\spring-boot-starter-logging-3.1.6.jar;C:\Users\손형동\.m2\repository\ch\qos\logback\logback-classic\1.4.11\logback-classic-1.4.11.jar;C:\Users\손형동\.m2\repository\ch\qos\logback\logback-core\1.4.11\logback-core-1.4.11.jar;C:\Users\손형동\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.20.0\log4j-to-slf4j-2.20.0.jar;C:\Users\손형동\.m2\repository\org\apache\logging\log4j\log4j-api\2.20.0\log4j-api-2.20.0.jar;C:\Users\손형동\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\손형동\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\손형동\.m2\repository\org\yaml\snakeyaml\1.33\snakeyaml-1.33.jar;C:\Users\손형동\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.1.6\spring-boot-starter-json-3.1.6.jar;C:\Users\손형동\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\손형동\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\손형동\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\손형동\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\손형동\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\손형동\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\손형동\.m2\repository\org\springframework\boot\spring-boot-start
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 130023424                                 {product} {ergonomic}
+     bool ManagementServer                         = true                                      {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2069889024                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 2069889024                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-17
+PATH=C:/Users/손형동/OneDrive/바탕 화면/SpringTools4/sts-4.17.0.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933/jre/bin/server;C:/Users/손형동/OneDrive/바탕 화면/SpringTools4/sts-4.17.0.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.5.v20221102-0933/jre/bin;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\app\User\product\21c\dbhomeXE\bin;C:\ORA\WINDOWS.X64_193000_db_home\bin;C:\Users\손형동\OneDrive\바탕 화면\apache-tomcat-8.5.84\bin;"C:\Us;rs\손형동\OneDrive\바탕 화면\apache-tomcat-8.5.84\bin; ;";"C;\Users\손형동\AppData\Local\Programs\Python\Python310\Scripts\;";C:\Users\손형동\AppData\Local\Microsoft\WindowsApps;";;C:\ProgramData\손형동\atom\bin;C:;Microsoft VS Code\bin;C:\Users\손형동\OneDrive\바탕 화면\apache-tomcat-8.5.84bin;C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin";C:\Windows\System32;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files (x86)\PuTTY\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\MariaDB 10.6\bin;C:\Users\손형동\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\손형동\AppData\Local\Programs\Python\Python310\;C:\Users\손형동\AppData\Local\Microsoft\WindowsApps;C:\Users\손형동\.dotnet\tools;C:\ProgramData\손형동\atom\bin;C:\Microsoft VS Code\bin;C:\Program Files (x86)\IntelliJ IDEA Community Edition 2023.1\bin;;C:\Users\손형동\AppData\Local\Microsoft\WindowsApps;C:\Users\손형동\AppData\Local\GitHubDesktop\bin;C:\Program Files\heroku\bin;C:\Users\손형동\OneDrive\바탕 화면\SpringTools4\sts-4.17.0.RELEASE;
+USERNAME=손형동
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 140 Stepping 2, GenuineIntel
+TMP=C:\Users\손형동\AppData\Local\Temp
+TEMP=C:\Users\손형동\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.2506)
+OS uptime: 6 days 0:00 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 140 stepping 2 microcode 0x16, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, avx512f, avx512dq, avx512cd, avx512bw, avx512vl, sha, fma, vzeroupper, avx512_vpopcntdq, avx512_vpclmulqdq, avx512_vaes, avx512_vnni, clflush, clflushopt, clwb, avx512_vbmi2, avx512_vbmi, hv
+
+Memory: 4k page, system-wide physical 7894M (357M free)
+TotalPageFile size 32470M (AvailPageFile size 9M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 55M, peak: 179M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.5+8) for windows-amd64 JRE (17.0.5+8), built on Oct 19 2022 04:48:13 by "temurin" with MS VC++ 16.7 (VS2019)
+
+END.

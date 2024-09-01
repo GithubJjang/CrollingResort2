@@ -1,0 +1,2 @@
+@RequestParam(value = "id"): GET /resorts ? id = num <- 무조건 id 파라미터가 있어야 함.
+@PathVariable(value = "id"): GET /resorts/{id} 
